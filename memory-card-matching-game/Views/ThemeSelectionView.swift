@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct ThemeSelectionView: View {
-    @State private var showingPopover = false
+    @State private var showingSheet = false
     @ObservedObject var tcManager: ThemeCollectionManager
     @State private var editMode = EditMode.inactive
     
     var body: some View {
-        print("start: \(tcManager.themes)")
         return NavigationView {
             List {
                 ForEach(tcManager.themes) { theme in
@@ -31,22 +30,26 @@ struct ThemeSelectionView: View {
                 }.onDelete(perform: onDelete)
             }
             .listStyle(InsetGroupedListStyle())
-            .navigationTitle("Themes")
-            .navigationBarItems(trailing: HStack {
-                //Button(action: {self.showingPopover = true}, label: {Image(systemName: "pencil").resizable().frame(width: 20, height: 20)})
-                //EditButton().padding(5)
-                Button(action: {self.showingPopover = true}, label: {Image(systemName: "plus")}).padding(5)//.resizable().frame(width: 20, height: 20)
-            }
-            .sheet(isPresented: $showingPopover) {
-                    ThemeEditorView { name, accentColor, emojiSet  in
-                        tcManager.addTheme(name: name, accentColor: UIColor(accentColor), emojiSet: emojiSet)
-                        
-                        print(tcManager.themes)
+            .toolbar {
+                ToolbarItem() {
+                    HStack {
+                        // EditButton()
+                        Button(action: { self.showingSheet = true }, label: {Image(systemName: "plus")})
                     }
+                }
+            }.environment(\.editMode, $editMode)
+            .navigationTitle("Themes")
+            
+            DestinationPageView(theme: DefaultThemes.theme1)
+            // Text("⬅️Select your theme from sidebar")
+        }
+        .sheet(isPresented: $showingSheet) {
+            ThemeEditorView { name, accentColor, emojiSet in
+                tcManager.addTheme(name: name, accentColor: UIColor(accentColor), emojiSet: emojiSet)
             }
-            ).environment(\.editMode, $editMode)
         }
     }
+    
     private func onDelete(atOffsets: IndexSet) {
         tcManager.removeTheme(atOffsets: atOffsets)
     }

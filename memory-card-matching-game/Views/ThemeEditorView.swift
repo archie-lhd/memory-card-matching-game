@@ -1,5 +1,5 @@
 //
-//  CustomizeThemeView.swift
+//  ThemeEditorView.swift
 //  memory-card-matching-game
 //
 //  Created by Archie Liu on 2021-05-05.
@@ -32,21 +32,27 @@ struct ThemeEditorView: View {
                     }
                 }
             }.listStyle(InsetGroupedListStyle())
-            .navigationBarItems(
-                leading: Button("Cancel") {
-                    presentation.wrappedValue.dismiss()
-                },
-                trailing: Button("Add") {
-                    updateChanges(name, color, emojiText.splitIntoArrayOfString())
-                    presentation.wrappedValue.dismiss()
-                }.disabled(name == "" || emojiText.count < 2)
-            )
+            .toolbar {
+                    ToolbarItem(placement: .confirmationAction) {
+                        Button("Add") {
+                            presentation.wrappedValue.dismiss()
+                            updateChanges(name, color, emojiText.splitIntoArrayOfString())
+                        }.disabled(name == "" || emojiText.count < 2)
+                    }
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button("Cancel") { presentation.wrappedValue.dismiss() }
+                    }
+            }
         }
     }
 }
-//
-//struct CustomizeThemeView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ThemeCustomizationView()
-//    }
-//}
+
+
+struct ThemeEditorView_Previews: PreviewProvider {
+    static var previews: some View {
+        ThemeEditorView {a,b,c in
+            temp(a,b,c)
+        }
+    }
+    static func temp(_ a: String, _ b: Color, _ c: Array<String>) -> Void {}
+}
