@@ -9,20 +9,21 @@ import SwiftUI
 
 struct ThemeSelectionView: View {
     @State private var showingPopover = false
-    @ObservedObject var themes: ThemeSet
+    @ObservedObject var tcManager: ThemeCollectionManager
     @State private var editMode = EditMode.inactive
     
     var body: some View {
+        print("start: \(tcManager.themes)")
         return NavigationView {
             List {
-                ForEach(themes.getThemeSet()) { theme in
+                ForEach(tcManager.themes) { theme in
                     NavigationLink(destination: DestinationPageView(theme: theme)) {
                         HStack {
                             Image(systemName: "chevron.right.circle.fill")
-                                .foregroundColor(theme.accentColor)
+                                .foregroundColor(Color(theme.accentColor))
                             
                             VStack(alignment: .leading, spacing: 8) {
-                                Text(theme.themeName)
+                                Text(theme.name)
                                 Text(theme.emojiSet.joined(separator: " "))
                             }.font(.headline).padding()
                         }
@@ -37,22 +38,24 @@ struct ThemeSelectionView: View {
                 Button(action: {self.showingPopover = true}, label: {Image(systemName: "plus")}).padding(5)//.resizable().frame(width: 20, height: 20)
             }
             .sheet(isPresented: $showingPopover) {
-                    ThemeEditorView { name,accentColor,emojiSet  in
-                    themes.addTheme(name: name, accentColor: accentColor, emojiSet: emojiSet)
+                    ThemeEditorView { name, accentColor, emojiSet  in
+                        tcManager.addTheme(name: name, accentColor: UIColor(accentColor), emojiSet: emojiSet)
+                        
+                        print(tcManager.themes)
                     }
             }
             ).environment(\.editMode, $editMode)
         }
     }
-    private func onDelete(offsets: IndexSet) {
-        themes.themeSet.remove(atOffsets: offsets)
+    private func onDelete(atOffsets: IndexSet) {
+        tcManager.removeTheme(atOffsets: atOffsets)
     }
 }
 struct DestinationPageView: View {
-    var theme: Theme
+    var theme: ThemeCollection.Theme
     var viewModel: EmojiMemoryGameViewModel
     
-    init(theme: Theme) {
+    init(theme: ThemeCollection.Theme) {
         self.theme = theme
         self.viewModel = EmojiMemoryGameViewModel(theme: theme)
     }
@@ -65,6 +68,6 @@ struct DestinationPageView: View {
 
 struct ThemeSelectionView_Previews: PreviewProvider {
     static var previews: some View {
-        ThemeSelectionView(themes: ThemeSet())
+        ThemeSelectionView(tcManager: ThemeCollectionManager())
     }
 }

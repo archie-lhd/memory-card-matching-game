@@ -10,7 +10,7 @@ import SwiftUI
 struct ThemeEditorView: View {
     @State private var name: String = ""
     @State private var emojiText: String = ""
-    @State private var color: Color = .pink
+    @State private var color: Color = .blue
     
     @Environment(\.presentationMode) var presentation
     

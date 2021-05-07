@@ -21,7 +21,7 @@ struct EmojiMemoryGameView: View {
                     .padding(5)
             }
                 .padding()
-            .foregroundColor(viewModel.theme.accentColor)
+            .foregroundColor(Color(viewModel.theme.accentColor))
             Button(action: {
                 withAnimation(.easeInOut) {
                     viewModel.resetGame()
@@ -31,9 +31,9 @@ struct EmojiMemoryGameView: View {
                     .font(.headline)
             })
         }
-        .navigationTitle(viewModel.theme.themeName)
+        .navigationTitle(viewModel.theme.name)
         .navigationBarItems(trailing:Group{Text("Score: \(viewModel.getScore())")})
-        .accentColor(viewModel.theme.accentColor)
+        .accentColor(Color(viewModel.theme.accentColor))
     }
 }
 
@@ -98,7 +98,7 @@ struct CardView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let game = EmojiMemoryGameViewModel(theme: Theme.theme1)
+        let game = EmojiMemoryGameViewModel(theme: DefaultThemes.theme1)
         game.choose(card: game.cards[0])
         return EmojiMemoryGameView(viewModel: game)
     }

@@ -11,7 +11,7 @@ import SwiftUI
 struct memory_card_matching_game_App: App {
     var body: some Scene {
         WindowGroup {
-            ThemeSelectionView(themes: ThemeSet())
+            ThemeSelectionView(tcManager: ThemeCollectionManager())
         }
     }
 }
