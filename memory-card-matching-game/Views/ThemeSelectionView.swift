@@ -44,10 +44,8 @@ struct ThemeSelectionView: View {
             // Text("⬅️Select your theme from sidebar")
         }
         .sheet(isPresented: $showingSheet) {
-            ThemeEditorView { name, accentColor, emojiSet in
-                tcManager.addTheme(name: name, accentColor: UIColor(accentColor), emojiSet: emojiSet)
-            }
-        }
+            ThemeEditorView()
+        }.environmentObject(tcManager)
     }
     
     private func onDelete(atOffsets: IndexSet) {

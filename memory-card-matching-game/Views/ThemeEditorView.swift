@@ -12,9 +12,9 @@ struct ThemeEditorView: View {
     @State private var emojiText: String = ""
     @State private var color: Color = .blue
     
+    @EnvironmentObject private var tcManager: ThemeCollectionManager
     @Environment(\.presentationMode) var presentation
     
-    var updateChanges: (_ name: String, _ accentColor: Color, _ emojiSet: Array<String>) -> Void
     var body: some View {
         NavigationView {
             List {
@@ -36,7 +36,7 @@ struct ThemeEditorView: View {
                     ToolbarItem(placement: .confirmationAction) {
                         Button("Add") {
                             presentation.wrappedValue.dismiss()
-                            updateChanges(name, color, emojiText.splitIntoArrayOfString())
+                            tcManager.addTheme(name: name, accentColor: UIColor(color), emojiSet: emojiText.splitIntoArrayOfString())
                         }.disabled(name == "" || emojiText.count < 2)
                     }
                     ToolbarItem(placement: .cancellationAction) {
@@ -50,9 +50,6 @@ struct ThemeEditorView: View {
 
 struct ThemeEditorView_Previews: PreviewProvider {
     static var previews: some View {
-        ThemeEditorView {a,b,c in
-            temp(a,b,c)
-        }
+        ThemeEditorView()
     }
-    static func temp(_ a: String, _ b: Color, _ c: Array<String>) -> Void {}
 }
