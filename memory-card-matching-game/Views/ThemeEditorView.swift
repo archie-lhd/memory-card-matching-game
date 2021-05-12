@@ -8,20 +8,28 @@
 import SwiftUI
 
 struct ThemeEditorView: View {
-    @State private var name: String = ""
-    @State private var emojiText: String = ""
-    @State private var color: Color = .blue
-    private var isEditing = false
-    
-    init(isEditing: Bool, theme: ThemeCollection.Theme) {
-        self.name = theme.name
-        self.color = Color(theme.accentColor)
-        self.emojiText = theme.emojiSet.mergeIntoString()
-    }
-    init() { }
-    
     @EnvironmentObject private var tcManager: ThemeCollectionManager
     @Environment(\.presentationMode) var presentation
+    private var isEditing: Bool
+    private var selectedTheme: ThemeCollection.Theme?
+    @State private var name: String
+    @State private var emojiText: String
+    @State private var color: Color
+    
+    init(theme: ThemeCollection.Theme) {
+        self.isEditing = true
+        self.selectedTheme = theme
+        self._name = State(wrappedValue: theme.name)
+        self._color = State(wrappedValue: Color(theme.accentColor))
+        self._emojiText = State(wrappedValue: theme.emojiSet.mergeIntoString())
+    }
+    init() {
+        self.isEditing = false
+        self._name = State(initialValue: "")
+        self._color = State(initialValue: Color(.blue))
+        self._emojiText = State(initialValue: "")
+    }
+    
     
     var body: some View {
         NavigationView {
@@ -42,9 +50,22 @@ struct ThemeEditorView: View {
             }.listStyle(InsetGroupedListStyle())
             .toolbar {
                     ToolbarItem(placement: .confirmationAction) {
-                        Button("Add") {
+                        Button(isEditing ? "Done" : "Add") {
                             presentation.wrappedValue.dismiss()
-                            tcManager.addTheme(name: name, accentColor: UIColor(color), emojiSet: emojiText.splitIntoArrayOfString())
+                            if isEditing {
+                                tcManager.editTheme(
+                                    id: selectedTheme!.id,
+                                    name: name,
+                                    accentColor: UIColor(color),
+                                    emojiSet: emojiText.splitIntoArrayOfString()
+                                )
+                            } else {
+                                tcManager.addTheme(
+                                    name: name,
+                                    accentColor: UIColor(color),
+                                    emojiSet: emojiText.splitIntoArrayOfString()
+                                )
+                            }
                         }.disabled(name == "" || emojiText.count < 2)
                     }
                     ToolbarItem(placement: .cancellationAction) {

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B73186C22633084400A6619A"
-               BuildableName = "memory-card-matching-game.app"
-               BlueprintName = "memory-card-matching-game"
-               ReferencedContainer = "container:memory-card-matching-game.xcodeproj">
+               BuildableName = "Memory Game.app"
+               BlueprintName = "Memory Game"
+               ReferencedContainer = "container:MemoryGame.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B73186C22633084400A6619A"
-            BuildableName = "memory-card-matching-game.app"
-            BlueprintName = "memory-card-matching-game"
-            ReferencedContainer = "container:memory-card-matching-game.xcodeproj">
+            BuildableName = "Memory Game.app"
+            BlueprintName = "Memory Game"
+            ReferencedContainer = "container:MemoryGame.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B73186C22633084400A6619A"
-            BuildableName = "memory-card-matching-game.app"
-            BlueprintName = "memory-card-matching-game"
-            ReferencedContainer = "container:memory-card-matching-game.xcodeproj">
+            BuildableName = "Memory Game.app"
+            BlueprintName = "Memory Game"
+            ReferencedContainer = "container:MemoryGame.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

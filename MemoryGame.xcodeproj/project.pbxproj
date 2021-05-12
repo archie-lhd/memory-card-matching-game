@@ -35,7 +35,7 @@
 		B711E699263AE567003BF234 /* GridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
 		B711E69C263AEBE5003BF234 /* Array+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Identifiable.swift"; sourceTree = "<group>"; };
 		B72A35FA264184A200B0CC32 /* Int+RandomExcludingSome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+RandomExcludingSome.swift"; sourceTree = "<group>"; };
-		B73186C32633084400A6619A /* memory-card-matching-game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "memory-card-matching-game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B73186C32633084400A6619A /* Memory Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Memory Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B73186C62633084400A6619A /* memory_card_matching_game_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memory_card_matching_game_App.swift; sourceTree = "<group>"; };
 		B73186C82633084400A6619A /* EmojiMemoryGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGameView.swift; sourceTree = "<group>"; };
 		B73186CA2633084700A6619A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 		B73186C42633084400A6619A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B73186C32633084400A6619A /* memory-card-matching-game.app */,
+				B73186C32633084400A6619A /* Memory Game.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -168,9 +168,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B73186C22633084400A6619A /* memory-card-matching-game */ = {
+		B73186C22633084400A6619A /* Memory Game */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B73186D22633084700A6619A /* Build configuration list for PBXNativeTarget "memory-card-matching-game" */;
+			buildConfigurationList = B73186D22633084700A6619A /* Build configuration list for PBXNativeTarget "Memory Game" */;
 			buildPhases = (
 				B73186BF2633084400A6619A /* Sources */,
 				B73186C02633084400A6619A /* Frameworks */,
@@ -180,9 +180,9 @@
 			);
 			dependencies = (
 			);
-			name = "memory-card-matching-game";
+			name = "Memory Game";
 			productName = "stanford-1";
-			productReference = B73186C32633084400A6619A /* memory-card-matching-game.app */;
+			productReference = B73186C32633084400A6619A /* Memory Game.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -199,7 +199,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B73186BE2633084400A6619A /* Build configuration list for PBXProject "memory-card-matching-game" */;
+			buildConfigurationList = B73186BE2633084400A6619A /* Build configuration list for PBXProject "MemoryGame" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -212,7 +212,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B73186C22633084400A6619A /* memory-card-matching-game */,
+				B73186C22633084400A6619A /* Memory Game */,
 			);
 		};
 /* End PBXProject section */
@@ -390,7 +390,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "archie.memory-card-matching-game";
+				PRODUCT_BUNDLE_IDENTIFIER = archie.memory.game;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -413,7 +413,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "archie.memory-card-matching-game";
+				PRODUCT_BUNDLE_IDENTIFIER = archie.memory.game;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -423,7 +423,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B73186BE2633084400A6619A /* Build configuration list for PBXProject "memory-card-matching-game" */ = {
+		B73186BE2633084400A6619A /* Build configuration list for PBXProject "MemoryGame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B73186D02633084700A6619A /* Debug */,
@@ -432,7 +432,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B73186D22633084700A6619A /* Build configuration list for PBXNativeTarget "memory-card-matching-game" */ = {
+		B73186D22633084700A6619A /* Build configuration list for PBXNativeTarget "Memory Game" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B73186D32633084700A6619A /* Debug */,

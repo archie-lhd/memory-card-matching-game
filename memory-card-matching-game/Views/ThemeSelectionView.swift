@@ -10,6 +10,7 @@ import SwiftUI
 struct ThemeSelectionView: View {
     @State private var showingSheet = false
     @ObservedObject var tcManager: ThemeCollectionManager
+    @Environment(\.presentationMode) var presentation
     @State private var editMode = EditMode.inactive
     
     var body: some View {
@@ -32,7 +33,10 @@ struct ThemeSelectionView: View {
                 ToolbarItem() {
                     HStack {
                         EditButton()
-                        Button(action: { self.showingSheet = true }, label: {Image(systemName: "plus")})
+                        Button(action: {
+                            selectedTheme = nil
+                            self.showingSheet = true
+                        }, label: {Image(systemName: "plus")})
                     }
                 }
             }.environment(\.editMode, $editMode)
@@ -43,7 +47,7 @@ struct ThemeSelectionView: View {
         }
         .sheet(isPresented: $showingSheet) {
             if selectedTheme != nil {
-                ThemeEditorView(isEditing: editMode.isEditing, theme: selectedTheme!)
+                ThemeEditorView(theme: selectedTheme!)
             } else {
                 ThemeEditorView()
             }
@@ -58,11 +62,11 @@ struct ThemeSelectionView: View {
     
     @ViewBuilder
     private func editButton(theme: ThemeCollection.Theme) -> some View {
-
-        withAnimation(.easeInOut) {
+        withAnimation(.easeIn) {
             ZStack{
                 Image(systemName: "pencil.circle.fill")
-                    .foregroundColor(Color(theme.accentColor))
+                    .foregroundColor(.blue)
+                    .imageScale(.large)
                     .opacity(editMode.isEditing ? 1:0)
                     .onTapGesture {
                         selectedTheme = theme
@@ -75,6 +79,29 @@ struct ThemeSelectionView: View {
         }
     }
 }
+
+//struct CircularEditButtonView: View {
+//    var theme: ThemeCollection.Theme
+//    var isEditing: Bool
+//    var body: some View {
+//        withAnimation(.easeInOut) {
+//            ZStack{
+//                Image(systemName: "pencil.circle.fill")
+//                    .foregroundColor(Color(theme.accentColor))
+//                    .opacity(isEditing ? 1:0)
+//                    .onTapGesture {
+//                        selectedTheme = theme
+//                        showingSheet = true
+//                    }
+//                Image(systemName: "chevron.right.circle.fill")
+//                    .opacity(isEditing ? 0:1)
+//                    .foregroundColor(Color(theme.accentColor))
+//            }
+//        }
+//
+//    }
+//}
+
 struct DestinationPageView: View {
     var theme: ThemeCollection.Theme
     var viewModel: EmojiMemoryGameViewModel

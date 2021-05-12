@@ -36,12 +36,18 @@ struct ThemeCollection: Codable {
     }
     
     init() {
-        self.themes = [DefaultThemes.theme1, DefaultThemes.theme2, DefaultThemes.theme3, DefaultThemes.theme4, DefaultThemes.theme5, DefaultThemes.theme6]
+        self.themes = [DefaultThemes.theme0, DefaultThemes.theme1, DefaultThemes.theme2, DefaultThemes.theme3, DefaultThemes.theme4, DefaultThemes.theme5]
     }
     
     mutating func addTheme(name: String, accentColor: UIColor, emojiSet: [String]) {
-        themes.append(Theme(name: name, accentColor: accentColor, emojiSet: emojiSet, id: themes.count + 1))
+        themes.append(Theme(name: name, accentColor: accentColor, emojiSet: emojiSet, id: themes.count))
         
+    }
+    
+    mutating func editTheme(id: Int, name: String, accentColor: UIColor, emojiSet: [String]) {
+        themes[id].name = name
+        themes[id].accentColor = accentColor.rgb
+        themes[id].emojiSet = emojiSet
     }
     
     mutating func removeTheme(atOffsets: IndexSet) {
