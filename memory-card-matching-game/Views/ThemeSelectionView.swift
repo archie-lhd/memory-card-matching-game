@@ -18,9 +18,7 @@ struct ThemeSelectionView: View {
                 ForEach(tcManager.themes) { theme in
                     NavigationLink(destination: DestinationPageView(theme: theme)) {
                         HStack {
-                            Image(systemName: "chevron.right.circle.fill")
-                                .foregroundColor(Color(theme.accentColor))
-                            
+                            editButton(theme: theme)
                             VStack(alignment: .leading, spacing: 8) {
                                 Text(theme.name)
                                 Text(theme.emojiSet.joined(separator: " "))
@@ -33,7 +31,7 @@ struct ThemeSelectionView: View {
             .toolbar {
                 ToolbarItem() {
                     HStack {
-                        // EditButton()
+                        EditButton()
                         Button(action: { self.showingSheet = true }, label: {Image(systemName: "plus")})
                     }
                 }
@@ -44,12 +42,37 @@ struct ThemeSelectionView: View {
             // Text("⬅️Select your theme from sidebar")
         }
         .sheet(isPresented: $showingSheet) {
-            ThemeEditorView()
+            if selectedTheme != nil {
+                ThemeEditorView(isEditing: editMode.isEditing, theme: selectedTheme!)
+            } else {
+                ThemeEditorView()
+            }
         }.environmentObject(tcManager)
     }
     
+    @State private var selectedTheme: ThemeCollection.Theme? = nil
+    
     private func onDelete(atOffsets: IndexSet) {
         tcManager.removeTheme(atOffsets: atOffsets)
+    }
+    
+    @ViewBuilder
+    private func editButton(theme: ThemeCollection.Theme) -> some View {
+
+        withAnimation(.easeInOut) {
+            ZStack{
+                Image(systemName: "pencil.circle.fill")
+                    .foregroundColor(Color(theme.accentColor))
+                    .opacity(editMode.isEditing ? 1:0)
+                    .onTapGesture {
+                        selectedTheme = theme
+                        showingSheet = true
+                    }
+                Image(systemName: "chevron.right.circle.fill")
+                    .opacity(editMode.isEditing ? 0:1)
+                    .foregroundColor(Color(theme.accentColor))
+            }
+        }
     }
 }
 struct DestinationPageView: View {

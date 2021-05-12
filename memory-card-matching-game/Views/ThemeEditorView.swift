@@ -11,6 +11,14 @@ struct ThemeEditorView: View {
     @State private var name: String = ""
     @State private var emojiText: String = ""
     @State private var color: Color = .blue
+    private var isEditing = false
+    
+    init(isEditing: Bool, theme: ThemeCollection.Theme) {
+        self.name = theme.name
+        self.color = Color(theme.accentColor)
+        self.emojiText = theme.emojiSet.mergeIntoString()
+    }
+    init() { }
     
     @EnvironmentObject private var tcManager: ThemeCollectionManager
     @Environment(\.presentationMode) var presentation
