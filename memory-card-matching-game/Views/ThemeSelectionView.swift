@@ -19,7 +19,7 @@ struct ThemeSelectionView: View {
                 ForEach(tcManager.themes) { theme in
                     NavigationLink(destination: DestinationPageView(theme: theme)) {
                         HStack {
-                            editButton(theme: theme)
+                            displayCircularEditButton(theme: theme)
                             VStack(alignment: .leading, spacing: 8) {
                                 Text(theme.name)
                                 Text(theme.emojiSet.joined(separator: " "))
@@ -30,14 +30,17 @@ struct ThemeSelectionView: View {
             }
             .listStyle(InsetGroupedListStyle())
             .toolbar {
-                ToolbarItem() {
-                    HStack {
-                        EditButton()
-                        Button(action: {
-                            selectedTheme = nil
-                            self.showingSheet = true
-                        }, label: {Image(systemName: "plus")})
-                    }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    EditButton()
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        selectedTheme = nil
+                        self.showingSheet = true
+                    }, label: {
+                        Image(systemName: "plus")
+                            .imageScale(.large)
+                    })
                 }
             }.environment(\.editMode, $editMode)
             .navigationTitle("Themes")
@@ -61,7 +64,7 @@ struct ThemeSelectionView: View {
     }
     
     @ViewBuilder
-    private func editButton(theme: ThemeCollection.Theme) -> some View {
+    private func displayCircularEditButton(theme: ThemeCollection.Theme) -> some View {
         withAnimation(.easeIn) {
             ZStack{
                 Image(systemName: "pencil.circle.fill")

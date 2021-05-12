@@ -26,7 +26,7 @@ struct ThemeEditorView: View {
     init() {
         self.isEditing = false
         self._name = State(initialValue: "")
-        self._color = State(initialValue: Color(.blue))
+        self._color = State(initialValue: Color.blue)
         self._emojiText = State(initialValue: "")
     }
     
