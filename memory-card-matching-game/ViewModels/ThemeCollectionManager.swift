@@ -28,7 +28,7 @@ class ThemeCollectionManager: ObservableObject {
     func moveTheme(fromOffsets: IndexSet, toOffset: Int) {
         themeCollection.moveTheme(fromOffsets: fromOffsets, toOffset: toOffset)
     }
-    func editTheme(id: Int, name: String, accentColor: UIColor, emojiSet: [String]) {
+    func editTheme(id: UUID, name: String, accentColor: UIColor, emojiSet: [String]) {
         themeCollection.editTheme(id: id, name: name, accentColor: accentColor, emojiSet: emojiSet)
     }
     func resetThemes() {

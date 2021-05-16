@@ -124,11 +124,11 @@
 		B73186C52633084400A6619A /* memory-card-matching-game */ = {
 			isa = PBXGroup;
 			children = (
+				B71A1C35264579FB00044306 /* Models */,
 				B7FE7CE026428766003EA93A /* Views */,
 				B7FE7CE326428833003EA93A /* ViewModels */,
 				B72A35FF264185DF00B0CC32 /* Structs */,
 				B72A35FE264185BF00B0CC32 /* Extensions */,
-				B71A1C35264579FB00044306 /* Models */,
 				B71A1C34264579C300044306 /* DefaultThemes */,
 				B73186CA2633084700A6619A /* Assets.xcassets */,
 				B73186C62633084400A6619A /* memory_card_matching_game_App.swift */,
