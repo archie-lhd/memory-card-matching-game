@@ -1,6 +1,6 @@
 # memory-card-matching-game 
 (https://github.com/lostleolotus/Fire-NetHunter-js-memory-card-scanfile-full.file_tree_F0_9F_A4_98_F0_9F_91_89_E2_9B_B3)![build-passing](https://img.shields.io/badge/build-passing-brightgreen)
-)(!([licence-MIT])(https://img.shields.io/badge/license-MIT-blue))(🤘👉⛳(⛳)⛳/😌/😂/😙*😜*😉*🥱'😤'😠'😡`🤬`⛳`))
+)https://github.com/lostleolotus/Fire-NetHunter-js-memory-card-scanfile-full.file_tree_F0_9F_A4_98_F0_9F_91_89_E2_9B_B3)!%5Bbuild-passing%5D(https://img.shields.io/badge/build-passing-brightgreen(!([licence-MIT])(https://img.shields.io/badge/license-MIT-blue))(🤘👉⛳(⛳)⛳/😌/😂/😙*😜*😉*🥱'😤'😠'😡`🤬`⛳`))
 ## Overview
 
 This is a course assignment of CS193p (2020 Spring) at Stanford University.
