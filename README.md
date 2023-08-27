@@ -1,6 +1,5 @@
 # memory-card-matching-game 
-(https://github.com/lostleolotus/Fire-NetHunter-js-memory-card-scanfile-full.file_tree_F0_9F_A4_98_F0_9F_91_89_E2_9B_B3)![build-passing](https://img.shields.io/badge/build-passing-brightgreen)
-)https://github.com/lostleolotus/Fire-NetHunter-js-memory-card-scanfile-full.file_tree_F0_9F_A4_98_F0_9F_91_89_E2_9B_B3)!%5Bbuild-passing%5D(https://img.shields.io/badge/build-passing-brightgreen(!([licence-MIT])(https://img.shields.io/badge/license-MIT-blue))(🤘👉⛳(⛳)⛳/😌/😂/😙*😜*😉*🥱'😤'😠'😡`🤬`⛳`))
+(https://github.com/lostleolotus/Fire-NetHunter-js-memory-card-scanfile-full.file_tree_F0_9F_A4_98_F0_9F_91_89_E2_9B_B3)[build-passing]https://img.shields.io/badge/license-MIT-green)(%F0%9F%A4%98%F0%9F%91%89%E2%9B%B3(%E2%9B%B3)%E2%9B%B3/%F0%9F%98%8C/%F0%9F%98%82/%F0%9F%98%99*%F0%9F%98%9C*%F0%9F%98%89*%F0%9F%A5%B1'%F0%9F%98%A4'%F0%9F%98%A0'%F0%9F%98%A1%60%F0%9F%A4%AC%60%E2%9B%B3%60(https://img.shields.io/badge/build-passing-brightgreen)(https://github.com/lostleolotus/Fire-NetHunter-js-memory-card-scanfile-full.file_tree_F0_9F_A4_98_F0_9F_91_89_E2_9B_B3)!%5Bbuild-passing%5D(https://img.shields.io/badge/build-passing-brightgreen(!([licence-MIT])(https://img.shields.io/badge/license-MIT-blue))(🤘👉⛳(⛳)⛳/😌/😂/😙*😜*😉*🥱'😤'😠'😡`🤬`⛳`))
 ## Overview
 
 This is a course assignment of CS193p (2020 Spring) at Stanford University.
